@@ -1,0 +1,30 @@
+{
+    "options": [
+        {
+            "title": "invoice",
+            "url": "/document"
+        },
+        {
+            "title": "quotation",
+            "url": "/document"
+        },
+        {
+            "title": "other",
+            "url": "/document"
+        }
+    ],
+    "navigation": [
+        {
+            "title": "Invoice",
+            "url": "/document"
+        },
+        {
+            "title": "Quotation",
+            "url": "/document/quotation"
+        },
+        {
+            "title": "Other",
+            "url": "/document"
+        }
+    ]
+}
