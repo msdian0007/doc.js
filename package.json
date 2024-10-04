@@ -1,7 +1,7 @@
 {
   "name": "doc.js",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "homepage": "https://msdian0007.github.io/doc.js",
   "type": "module",
   "scripts": {

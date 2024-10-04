@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { receiverDetails, senderDetails } from "../../../../store/document/reducer";
+import {setReceiverDetails, setSenderDetails } from "../../../../store/document/reducer";
 
 
 const data = {
@@ -31,9 +31,9 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
     const handleOnSubmit = (e) => {
         e.preventDefault();
         if (type === 'sender') {
-            dispatch(senderDetails(formData))
+            dispatch(setSenderDetails(formData))
         } else {
-            dispatch(receiverDetails(formData))
+            dispatch(setReceiverDetails(formData))
         }
         setIsFormOpen(false)
     };
@@ -47,14 +47,14 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
             <div>
                 <div
                     id="rdClose"
-                    className="bg_main fixed top-0 left-0 w-full h-full z-10 "
+                    className="fixed top-0 left-0 z-10 w-full h-full bg_main "
                 >
-                    <form className="flex h-full items-center" id="moduleDetailsEditForm" action="" onSubmit={handleOnSubmit}>
-                        <div className="bg-white/70 w-3/4 sm:w-3/5 md:w-1/2 lg:w-1/3 mx-auto rounded-lg p-4 relative">
-                            <div className="mx-auto flex justify-center">
+                    <form className="flex items-center h-full" id="moduleDetailsEditForm" action="" onSubmit={handleOnSubmit}>
+                        <div className="relative w-3/4 p-4 mx-auto rounded-lg bg-white/70 sm:w-3/5 md:w-1/2 lg:w-1/3">
+                            <div className="flex justify-center mx-auto">
                                 <input
                                     // pattern="^[a-zA-Z][a-zA-Z0-9-_.\s]{1,50}$"
-                                    className="bg-gray-200 w-full p-2 my-4 rounded-lg"
+                                    className="w-full p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="Name/Company Name"
                                     name="cName"
@@ -63,10 +63,10 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                     required
                                 />
                             </div>
-                            <div className="mx-auto grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-3 gap-4 mx-auto">
                                 <input
                                     // pattern="^[a-zA-Z][a-zA-Z0-9-_.\s]{1,50}$"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg col-span-2"
+                                    className="col-span-2 p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="Address"
                                     name="address"
@@ -75,10 +75,10 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                     required
                                 />
                             </div>
-                            <div className="mx-auto grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-3 gap-4 mx-auto">
                                 <input
                                     // pattern="[A-Za-z]+"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg col-span-2"
+                                    className="col-span-2 p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="Locality"
                                     name="locality"
@@ -86,11 +86,11 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                     onChange={handleOnChange}
                                 />
                             </div>
-                            <div className="mx-auto grid grid-cols-4 gap-4">
+                            <div className="grid grid-cols-4 gap-4 mx-auto">
 
                                 <input
                                     pattern="[A-Za-z]+"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg"
+                                    className="p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="City"
                                     name="city"
@@ -99,7 +99,7 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                 />
                                 <input
                                     pattern="[A-Za-z]+"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg"
+                                    className="p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="State"
                                     name="state"
@@ -109,7 +109,7 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                 />
                                 <input
                                     pattern="[0-9]+"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg"
+                                    className="p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="Post Code"
                                     name="zip_code"
@@ -119,7 +119,7 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                 />
                                 <input
                                     pattern="[A-Za-z]+"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg"
+                                    className="p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="Country/Region"
                                     name="country"
@@ -128,10 +128,10 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                     required
                                 />
                             </div>
-                            {/* <div className="mx-auto grid grid-cols-3 gap-4">
+                            {/* <div className="grid grid-cols-3 gap-4 mx-auto">
                                 <input
                                     pattern="[0-9]+"
-                                    className="bg-gray-200 p-2 my-4 rounded-lg col-span-2"
+                                    className="col-span-2 p-2 my-4 bg-gray-200 rounded-lg"
                                     type="text"
                                     placeholder="GSTIN No."
                                     name="gst_no"
@@ -140,15 +140,15 @@ export const ModuleDetailsEditForm = ({ setIsFormOpen, type, formDetails }) => {
                                     required
                                 />
                             </div> */}
-                            <div className="mx-auto flex justify-end">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
+                            <div className="flex justify-end mx-auto">
+                                <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 ">
                                     Add
                                 </button>
                             </div>
 
                             <div className="absolute top-0 -right-8">
                                 <span
-                                    className="close text-2xl pl-1 text-white hover:text-red-800 cursor-pointer"
+                                    className="pl-1 text-2xl text-white cursor-pointer close hover:text-red-800"
                                     onClick={() => setIsFormOpen(false)}
                                 >
                                     &times;

@@ -1,9 +1,8 @@
-import { PageContainer } from "../components/layout/PageContainer"
-import { DocTypeCard } from "../components/partials/cards/DocTypeCard"
-import { MainHeader } from "../components/shared/headers/MainHeader"
 import DescriptionIcon from '@mui/icons-material/Description';
 import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 import { Link } from "react-router-dom"
+import { MainHeader } from '../components/shared';
+import { PageContainer } from '../components/layout';
 
 const CardDetails = [
     {
@@ -39,7 +38,7 @@ let CardComponent = ({ icon, url, title }) => (
         </div>
         <div className="flex flex-col items-center pb-4">
             {icon}
-            <span className=" text-gray-500 dark:text-gray-400">{title}</span>
+            <span className="text-gray-500  dark:text-gray-400">{title}</span>
         </div>
         <div className={`absolute w-full h-full top-0 left-0 bg-black/80 rounded-lg flex justify-center items-center group-hover/items:visible invisible ${!url ? 'hidden' : 'inline'}`}>
             <Link to={{ pathname: url, search: `type=${title}` }} >
@@ -57,7 +56,7 @@ export const Home = () => {
     return (
         <>
             <PageContainer header={headers}>
-                <div className="flex justify-center min-h-screen items-center">
+                <div className="flex items-center justify-center min-h-screen">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1rem] text-center py-[2rem] mx-[1rem] 3xl:scale-150">
                         {cardView}
                     </div>
